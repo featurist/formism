@@ -28,7 +28,11 @@ describe('form.forModel()', function() {
           notes: { type: 'text' }
         }
       });
-      var garfield = new Cat({ name: 'Garfield', email: 'garfield@cats.com' });
+      var garfield = new Cat({
+        name: 'Garfield',
+        email: 'garfield@cats.com',
+        notes: 'Lazy, obsessive eater'
+      });
 
       function render(model) {
         return form.forModel(model);
@@ -75,6 +79,10 @@ describe('form.forModel()', function() {
 
     it('sets input values', function() {
       return scope.find('form .property #emailField').shouldHave({ value: 'garfield@cats.com' });
+    });
+
+    it('sets textarea contents', function() {
+      return scope.find('form .property textarea#notesField').shouldHave({ value: 'Lazy, obsessive eater' });
     });
   });
 

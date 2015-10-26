@@ -26,7 +26,7 @@ Form.prototype.fieldForProperty = function(property, model) {
   var id = property.name + "Field";
   var inputTag = 'input';
   var inputProperties = {
-    value: model[property.name]
+    binding: [model, property.name]
   };
   if (property.type == 'integer') {
     inputProperties.type = 'number';

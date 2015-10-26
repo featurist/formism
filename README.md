@@ -21,7 +21,11 @@ var Cat = model({
   }
 });
 
-var garfield = new Cat({ name: 'Garfield', email: 'garfield@cats.com' });
+var garfield = new Cat({
+  name: 'Garfield',
+  email: 'garfield@cats.com',
+  notes: 'Lazy, obsessive eater'
+});
 
 function render(model) {
   return form.forModel(model);
@@ -53,7 +57,7 @@ plastiq.append(div, render, garfield);
   </div>
   <div class="property">
     <label for="notesField">notes</label>
-    <textarea id="notesField" />
+    <textarea id="notesField">Lazy, obsessive eater</textarea>
   </div>
 </form>
 ```
