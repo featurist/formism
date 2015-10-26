@@ -17,6 +17,10 @@ describe('form.forModel()', function() {
     scope = browser.find('.test');
   });
 
+  function find(selector) {
+    return scope.find(selector);
+  }
+
   describe('with a model argument', function() {
 
     var garfield;
@@ -48,51 +52,57 @@ describe('form.forModel()', function() {
     });
 
     it('makes a form', function() {
-      return scope.find('form').shouldExist();
+      return find('form').shouldExist();
     });
 
     it('makes a div for each property', function() {
-      return scope.find('form .property').shouldHave({ length: 5 });
+      return find('form .property').shouldHave({ length: 5 });
     });
 
     it('makes a label for each property', function() {
-      return scope.find('form .property label').shouldHave({ length: 5 });
+      return find('.property label').shouldHave({ length: 5 });
     });
 
     it('makes labels with text equal to each property name', function() {
-      return scope.find('form .property:last label').shouldHave({ text: 'notes' });
+      return find('.property:last label').shouldHave({ text: 'notes' });
     });
 
     it('makes labels with for="id" attributes', function() {
-      return scope.find('form .property:last label[for=notesField]').shouldExist();
+      return find('.property:last label[for=notesField]').shouldExist();
     });
 
     it('makes inputs with ids based on the property name', function() {
-      return scope.find('form .property:last #notesField').shouldExist();
+      return find('.property:last #notesField').shouldExist();
     });
 
     it('makes number inputs for integer properties', function() {
-      return scope.find('form .property input#ageField[type=number]').shouldExist();
+      return find('.property input#ageField[type=number]').shouldExist();
     });
 
     it('makes number inputs for integer properties', function() {
-      return scope.find('form .property input#emailField[type=email]').shouldExist();
+      return find('.property input#emailField[type=email]').shouldExist();
     });
 
     it('makes textareas for text properties', function() {
-      return scope.find('form .property textarea#notesField').shouldExist();
+      return find('.property textarea#notesField').shouldExist();
     });
 
     it('sets text input values', function() {
-      return scope.find('form .property #emailField').shouldHave({ value: 'garfield@cats.com' });
+      return find('.property #emailField').shouldHave({
+        value: 'garfield@cats.com'
+      });
     });
 
     it('sets number input values', function() {
-      return scope.find('form .property #ageField').shouldHave({ value: '37' });
+      return find('.property #ageField').shouldHave({
+        value: '37'
+      });
     });
 
     it('sets textarea contents', function() {
-      return scope.find('form .property textarea#notesField').shouldHave({ value: 'Lazy, obsessive eater' });
+      return find('.property textarea#notesField').shouldHave({
+        value: 'Lazy, obsessive eater'
+      });
     });
 
     it('updates the model when text input value changes', function() {
@@ -139,27 +149,27 @@ describe('form.forModel()', function() {
     });
 
     it('makes a form', function() {
-      return scope.find('form').shouldExist();
+      return find('form').shouldExist();
     });
 
     it('makes a div for each named property', function() {
-      return scope.find('form .property').shouldHave({ length: 2 });
+      return find('form .property').shouldHave({ length: 2 });
     });
 
     it('makes a label for each named property', function() {
-      return scope.find('form .property label').shouldHave({ length: 2 });
+      return find('form .property label').shouldHave({ length: 2 });
     });
 
     it('makes labels with the text of each named property', function() {
-      return scope.find('form .property:last label').shouldHave({ text: 'age' });
+      return find('form .property:last label').shouldHave({ text: 'age' });
     });
 
     it('makes labels with for="id" attributes', function() {
-      return scope.find('form .property:last label[for=ageField]').shouldExist();
+      return find('form .property:last label[for=ageField]').shouldExist();
     });
 
     it('makes inputs with ids based on the named properties names', function() {
-      return scope.find('form .property:last input#ageField').shouldExist();
+      return find('form .property:last input#ageField').shouldExist();
     });
 
   });
