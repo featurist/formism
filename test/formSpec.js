@@ -4,6 +4,9 @@ var expect = require('chai').expect;
 var form = require('..');
 var createTestDiv = require('./createTestDiv');
 var browser = require('browser-monkey');
+var jquery = require('jquery');
+require('jquery-sendkeys');
+var retry = require('trytryagain');
 
 describe('form.forModel()', function() {
 
@@ -15,6 +18,8 @@ describe('form.forModel()', function() {
   });
 
   describe('with a model argument', function() {
+
+    var garfield;
 
     beforeEach(function () {
 
@@ -28,7 +33,7 @@ describe('form.forModel()', function() {
           notes: { type: 'text' }
         }
       });
-      var garfield = new Cat({
+      garfield = new Cat({
         name: 'Garfield',
         email: 'garfield@cats.com',
         age: 37,
@@ -39,7 +44,7 @@ describe('form.forModel()', function() {
         return form.forModel(model);
       }
 
-      plastiq.append(div, render, garfield);
+      plastiq.append(div, render, garfield, { requestRender: setTimeout });
     });
 
     it('makes a form', function() {
@@ -88,6 +93,27 @@ describe('form.forModel()', function() {
 
     it('sets textarea contents', function() {
       return scope.find('form .property textarea#notesField').shouldHave({ value: 'Lazy, obsessive eater' });
+    });
+
+    it('updates the model when text input value changes', function() {
+      jquery('#nameField').sendkeys('{selectall}{backspace}Obie');
+      return retry(function() {
+        expect(garfield.name).to.eql('Obie');
+      });
+    });
+
+    it('updates the model when textarea value changes', function() {
+      jquery('#notesField').sendkeys('{selectall}{backspace}Legend');
+      return retry(function() {
+        expect(garfield.notes).to.eql('Legend');
+      });
+    });
+
+    it('updates the model when number input value changes', function() {
+      jquery('#ageField').sendkeys('{selectall}{backspace}123');
+      return retry(function() {
+        expect(garfield.age).to.eql('123');
+      });
     });
   });
 

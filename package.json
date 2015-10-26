@@ -15,11 +15,14 @@
   "devDependencies": {
     "browser-monkey": "^1.24.0",
     "chai": "^3.3.0",
+    "jquery": "^2.1.4",
+    "jquery-sendkeys": "^1.0.2",
     "karma": "^0.13.11",
     "karma-browserify": "^4.4.0",
     "karma-chrome-launcher": "^0.2.1",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.1.1",
-    "mocha": "^2.3.3"
+    "mocha": "^2.3.3",
+    "trytryagain": "^1.1.0"
   }
 }
