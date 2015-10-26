@@ -31,6 +31,7 @@ describe('form.forModel()', function() {
       var garfield = new Cat({
         name: 'Garfield',
         email: 'garfield@cats.com',
+        age: 37,
         notes: 'Lazy, obsessive eater'
       });
 
@@ -53,7 +54,7 @@ describe('form.forModel()', function() {
       return scope.find('form .property label').shouldHave({ length: 5 });
     });
 
-    it('makes labels with the text of each property', function() {
+    it('makes labels with text equal to each property name', function() {
       return scope.find('form .property:last label').shouldHave({ text: 'notes' });
     });
 
@@ -77,8 +78,12 @@ describe('form.forModel()', function() {
       return scope.find('form .property textarea#notesField').shouldExist();
     });
 
-    it('sets input values', function() {
+    it('sets text input values', function() {
       return scope.find('form .property #emailField').shouldHave({ value: 'garfield@cats.com' });
+    });
+
+    it('sets number input values', function() {
+      return scope.find('form .property #ageField').shouldHave({ value: '37' });
     });
 
     it('sets textarea contents', function() {
