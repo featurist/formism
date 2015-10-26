@@ -37,7 +37,7 @@ plastiq.append(div, render, garfield);
 <form>
   <div class="property">
     <label for="nameField">name</label>
-    <input type="text" id="nameField" />
+    <input type="text" id="nameField" value="Garfield" />
   </div>
   <div class="property">
     <label for="breedField">breed</label>
@@ -45,7 +45,7 @@ plastiq.append(div, render, garfield);
   </div>
   <div class="property">
     <label for="emailField">email</label>
-    <input type="email" id="emailField" />
+    <input type="email" id="emailField" value="garfield@cats.com" />
   </div>
   <div class="property">
     <label for="ageField">age</label>

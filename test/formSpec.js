@@ -42,35 +42,39 @@ describe('form.forModel()', function() {
     });
 
     it('makes a div for each property', function() {
-      return scope.find('form div.property').shouldHave({ length: 5 });
+      return scope.find('form .property').shouldHave({ length: 5 });
     });
 
     it('makes a label for each property', function() {
-      return scope.find('form div.property label').shouldHave({ length: 5 });
+      return scope.find('form .property label').shouldHave({ length: 5 });
     });
 
     it('makes labels with the text of each property', function() {
-      return scope.find('form div.property:last label').shouldHave({ text: 'notes' });
+      return scope.find('form .property:last label').shouldHave({ text: 'notes' });
     });
 
     it('makes labels with for="id" attributes', function() {
-      return scope.find('form div.property:last label[for=notesField]').shouldExist();
+      return scope.find('form .property:last label[for=notesField]').shouldExist();
     });
 
     it('makes inputs with ids based on the property name', function() {
-      return scope.find('form div.property:last #notesField').shouldExist();
+      return scope.find('form .property:last #notesField').shouldExist();
     });
 
     it('makes number inputs for integer properties', function() {
-      return scope.find('form div.property input#ageField[type=number]').shouldExist();
+      return scope.find('form .property input#ageField[type=number]').shouldExist();
     });
 
     it('makes number inputs for integer properties', function() {
-      return scope.find('form div.property input#emailField[type=email]').shouldExist();
+      return scope.find('form .property input#emailField[type=email]').shouldExist();
     });
 
     it('makes textareas for text properties', function() {
-      return scope.find('form div.property textarea#notesField').shouldExist();
+      return scope.find('form .property textarea#notesField').shouldExist();
+    });
+
+    it('sets input values', function() {
+      return scope.find('form .property #emailField').shouldHave({ value: 'garfield@cats.com' });
     });
   });
 
@@ -100,23 +104,23 @@ describe('form.forModel()', function() {
     });
 
     it('makes a div for each named property', function() {
-      return scope.find('form div.property').shouldHave({ length: 2 });
+      return scope.find('form .property').shouldHave({ length: 2 });
     });
 
     it('makes a label for each named property', function() {
-      return scope.find('form div.property label').shouldHave({ length: 2 });
+      return scope.find('form .property label').shouldHave({ length: 2 });
     });
 
     it('makes labels with the text of each named property', function() {
-      return scope.find('form div.property:last label').shouldHave({ text: 'age' });
+      return scope.find('form .property:last label').shouldHave({ text: 'age' });
     });
 
     it('makes labels with for="id" attributes', function() {
-      return scope.find('form div.property:last label[for=ageField]').shouldExist();
+      return scope.find('form .property:last label[for=ageField]').shouldExist();
     });
 
     it('makes inputs with ids based on the named properties names', function() {
-      return scope.find('form div.property:last input#ageField').shouldExist();
+      return scope.find('form .property:last input#ageField').shouldExist();
     });
 
   });

@@ -17,15 +17,17 @@ Form.prototype.fieldsForModel = function(model, properties) {
     });
   }
   for (var i = 0; i < props.length; ++i) {
-    fields.push(this.fieldForProperty(props[i]));
+    fields.push(this.fieldForProperty(props[i], model));
   }
   return fields;
 }
 
-Form.prototype.fieldForProperty = function(property) {
+Form.prototype.fieldForProperty = function(property, model) {
   var id = property.name + "Field";
   var inputTag = 'input';
-  var inputProperties = {};
+  var inputProperties = {
+    value: model[property.name]
+  };
   if (property.type == 'integer') {
     inputProperties.type = 'number';
   }
