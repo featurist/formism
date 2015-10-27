@@ -38,7 +38,7 @@ Form.prototype.fieldForProperty = function(property, model) {
     inputTag = 'textarea';
   }
   return h('.property.' + property.name,
-    h('label', { "for": id }, property.name),
+    h('label', { "for": id }, property.label),
     h(inputTag + '#' + id, inputProperties)
   );
 };

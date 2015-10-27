@@ -4,16 +4,18 @@
   "description": "makes plastiq forms from modelism schemas",
   "main": "index.js",
   "scripts": {
-    "test": "karma start --single-run"
+    "test": "karma start --single-run",
+    "example": "browserify example/example.js -o example/bundle.js && open example/index.html"
   },
   "author": "josh@featurist.co.uk",
   "license": "MIT",
   "dependencies": {
-    "modelism": "^1.0.1",
+    "modelism": "^1.1.0",
     "plastiq": "^1.23.0"
   },
   "devDependencies": {
     "browser-monkey": "^1.24.0",
+    "browserify": "^12.0.0",
     "chai": "^3.3.0",
     "jquery": "^2.1.4",
     "jquery-sendkeys": "^1.0.2",

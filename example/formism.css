@@ -1,0 +1,26 @@
+form .property {
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+form .property label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin-bottom: 4px;
+}
+
+form .property input,
+form .property textarea {
+  width: 400px;
+  padding: 5px;
+}
+
+form .property textarea {
+  height: 5em;
+}
+
+pre {
+  background-color: #efefef;
+  padding: 10px;
+}
