@@ -5,6 +5,8 @@
 Builds [plastiq](https://github.com/featurist/plastiq) forms for
 [modelism](https://github.com/featurist/modelism) schemas.
 
+[Demo](https://rawgit.com/featurist/formism/master/example/index.html)
+
 ```JavaScript
 var plastiq = require('plastiq');
 var model = require('modelism');
